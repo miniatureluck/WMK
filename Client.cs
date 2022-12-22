@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace WMK
 {
     public enum Months { Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień }
+    public enum Comments { Rozmowy, Rozprawy, Korespondencja, Pisma, Analiza, Rekomendacje, Inne }
     public class Client
     {
         public string Name { get; set; }
         public List<ClientInfo>? Data { get; set; }
         public KeyValuePair<Months, bool> Completed { get; set; }
+        public bool UserEdited { get; set; }
     }
 
     public class ClientInfo

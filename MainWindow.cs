@@ -52,7 +52,42 @@ namespace WMK
         private void timerTime_Tick(object sender, EventArgs e)
         {
             timeThisSession += TimeSpan.FromSeconds(1);
-            labelTime.Text = $"Dzisiaj: {timeThisSession}";
+            labelTime.Text = timeThisSession.ToString();
+        }
+
+        private void radioButtonOther_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Inne);
+        }
+
+        private void radioButtonCall_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Rozmowy);
+        }
+
+        private void radioButtonCourt_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Rozprawy);
+        }
+
+        private void radioButtonEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Korespondencja);
+        }
+
+        private void radioButtonDocument_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Pisma);
+        }
+
+        private void radioButtonAnalysis_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Analiza);
+        }
+
+        private void radioButtonRecommendation_CheckedChanged(object sender, EventArgs e)
+        {
+            GUI.changeCommentTextBox(Comments.Rekomendacje);
         }
     }
 }

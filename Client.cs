@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WMK
 {
-    public enum Months { Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień }
+    public enum Months { Brak, Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień }
     public enum Comments { Rozmowy, Rozprawy, Korespondencja, Pisma, Analiza, Rekomendacje, Inne }
     public class Client
     {
@@ -18,8 +18,9 @@ namespace WMK
 
     public class ClientInfo
     {
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
-        public string? Comment { get; set; }
+        public Comments Comment { get; set; }
+        public string? CustomComment { get; set; }
     }
 }

@@ -43,10 +43,11 @@
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
-            this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            comboBoxClient = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +66,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.radioButtonOther);
             this.tabPage1.Controls.Add(this.radioButtonDocument);
             this.tabPage1.Controls.Add(this.radioButtonRecommendation);
@@ -77,7 +79,7 @@
             this.tabPage1.Controls.Add(this.buttonPause);
             this.tabPage1.Controls.Add(this.buttonPlay);
             this.tabPage1.Controls.Add(this.labelTime);
-            this.tabPage1.Controls.Add(this.comboBoxClient);
+            this.tabPage1.Controls.Add(comboBoxClient);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -231,15 +233,15 @@
             // 
             // comboBoxClient
             // 
-            this.comboBoxClient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(6, 6);
-            this.comboBoxClient.MaxDropDownItems = 20;
-            this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(143, 29);
-            this.comboBoxClient.Sorted = true;
-            this.comboBoxClient.TabIndex = 2;
-            this.comboBoxClient.Text = "Wybierz";
+            comboBoxClient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            comboBoxClient.FormattingEnabled = true;
+            comboBoxClient.Location = new System.Drawing.Point(6, 6);
+            comboBoxClient.MaxDropDownItems = 20;
+            comboBoxClient.Name = "comboBoxClient";
+            comboBoxClient.Size = new System.Drawing.Size(143, 29);
+            comboBoxClient.Sorted = true;
+            comboBoxClient.TabIndex = 2;
+            comboBoxClient.Text = "Wybierz";
             // 
             // tabPage2
             // 
@@ -264,6 +266,16 @@
             // 
             this.timerTime.Interval = 1000;
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(199, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainWindow
             // 
@@ -301,7 +313,8 @@
         private RadioButton radioButtonRecommendation;
         private RadioButton radioButtonAnalysis;
         private RadioButton radioButtonEmail;
-        public ComboBox comboBoxClient;
+        public static ComboBox comboBoxClient;
+        private Button button1;
         public static TextBox textBoxComment;
     }
 }

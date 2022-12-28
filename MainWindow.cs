@@ -1,6 +1,7 @@
 using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace WMK
@@ -10,10 +11,19 @@ namespace WMK
         TimeSpan timeThisSession = TimeSpan.FromSeconds(0);
         Stopwatch stopwatch = new();
         AllClients allClients = new();
+        int windowHeight = 337;
+        int tabHeight = 257;
         public MainWindow()
         {
             InitializeComponent();
-            allClients.LoadClientList();
+            Height = 144;
+            tabControl1.Height = 134;
+            allClients.LoadClientList(comboBoxClient);
+            if (comboBoxClient.Items.Count != 0)
+            {
+                comboBoxClient.SelectedIndex = 0;
+            }
+            ControlsVisibility();
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
@@ -45,10 +55,11 @@ namespace WMK
             {
                 Client client = new();
                 client.Name = clientName;
-                KeyValuePair<Client, ClientInfo> clientData = new KeyValuePair<Client, ClientInfo>(client, new());
-                allClients.AddClientToList(clientName);
-                allClients.LoadClientList();
+                KeyValuePair<Client, Session> clientData = new KeyValuePair<Client, Session>(client, new());
+                allClients.AddClient(clientName);
+                allClients.LoadClientList(comboBoxClient);
                 comboBoxClient.SelectedIndex = comboBoxClient.FindString(clientName);
+                ControlsVisibility();
             }
         }
 
@@ -61,48 +72,67 @@ namespace WMK
 
         private void radioButtonOther_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Inne);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Inne);
         }
 
         private void radioButtonCall_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Rozmowy);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Rozmowy);
         }
 
         private void radioButtonCourt_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Rozprawy);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Rozprawy);
         }
 
         private void radioButtonEmail_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Korespondencja);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Korespondencja);
         }
 
         private void radioButtonDocument_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Pisma);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Pisma);
         }
 
         private void radioButtonAnalysis_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Analiza);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Analiza);
         }
 
         private void radioButtonRecommendation_CheckedChanged(object sender, EventArgs e)
         {
-            GUI.changeCommentTextBox(Comments.Rekomendacje);
+            GUI.changeCommentTextBox(textBoxComment, Comments.Rekomendacje);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClientInfo info1 = new ClientInfo { Date = DateTime.Now, Time = TimeSpan.MinValue + TimeSpan.FromSeconds(190), Comment = Comments.Rozmowy };
-            List<ClientInfo> infolist1 = new List<ClientInfo> {};
-            infolist1.Add(info1);
+            
+        }
 
-            Months miesiac = Months.Wrzesieñ;
-            Client client1 = new Client(){ Name = comboBoxClient.Text, UserEdited = false, Completed = new KeyValuePair<Months, bool>(miesiac, false) , Data = infolist1};
-            File.WriteAllText(Directory.GetCurrentDirectory() + "/data.json", JsonSerializer.Serialize(client1));
+        private void ControlsVisibility()
+        {
+            if (comboBoxClient.Items.Count != 0)
+            {
+                radioButtonAnalysis.Visible = !radioButtonAnalysis.Visible;
+                radioButtonCall.Visible = !radioButtonCall.Visible;
+                radioButtonCourt.Visible = !radioButtonCourt.Visible;
+                radioButtonDocument.Visible = !radioButtonDocument.Visible;
+                radioButtonEmail.Visible = !radioButtonEmail.Visible;
+                radioButtonOther.Visible = !radioButtonOther.Visible;
+                radioButtonRecommendation.Visible = !radioButtonRecommendation.Visible;
+                textBoxComment.Visible = !textBoxComment.Visible;
+                buttonPause.Visible = !buttonPause.Visible;
+                buttonPlay.Visible = !buttonPlay.Visible;
+                buttonSave.Visible = !buttonSave.Visible;
+                Height = windowHeight;
+                tabControl1.Height = tabHeight;
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

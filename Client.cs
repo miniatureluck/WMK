@@ -11,16 +11,18 @@ namespace WMK
     public class Client
     {
         public string Name { get; set; }
-        public List<ClientInfo>? Data { get; set; }
+        public List<Session>? Data { get; set; }
         public KeyValuePair<Months, bool> Completed { get; set; }
-        public bool UserEdited { get; set; }
     }
 
-    public class ClientInfo
+    public class Session
     {
         public DateTime Date { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public TimeSpan Time { get; set; }
         public Comments Comment { get; set; }
         public string? CustomComment { get; set; }
+        public bool UserEdited { get; set; }
     }
 }

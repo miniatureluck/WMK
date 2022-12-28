@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageTime = new System.Windows.Forms.TabPage();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.radioButtonOther = new System.Windows.Forms.RadioButton();
             this.radioButtonDocument = new System.Windows.Forms.RadioButton();
             this.radioButtonRecommendation = new System.Windows.Forms.RadioButton();
@@ -38,54 +40,76 @@
             this.radioButtonEmail = new System.Windows.Forms.RadioButton();
             this.radioButtonCourt = new System.Windows.Forms.RadioButton();
             this.radioButtonCall = new System.Windows.Forms.RadioButton();
-            textBoxComment = new System.Windows.Forms.TextBox();
+            this.textBoxComment = new System.Windows.Forms.TextBox();
             this.buttonAddClient = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
-            comboBoxClient = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.tabPageClient = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPageTime);
+            this.tabControl1.Controls.Add(this.tabPageClient);
             this.tabControl1.Location = new System.Drawing.Point(12, 29);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(315, 257);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageTime
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.radioButtonOther);
-            this.tabPage1.Controls.Add(this.radioButtonDocument);
-            this.tabPage1.Controls.Add(this.radioButtonRecommendation);
-            this.tabPage1.Controls.Add(this.radioButtonAnalysis);
-            this.tabPage1.Controls.Add(this.radioButtonEmail);
-            this.tabPage1.Controls.Add(this.radioButtonCourt);
-            this.tabPage1.Controls.Add(this.radioButtonCall);
-            this.tabPage1.Controls.Add(textBoxComment);
-            this.tabPage1.Controls.Add(this.buttonAddClient);
-            this.tabPage1.Controls.Add(this.buttonPause);
-            this.tabPage1.Controls.Add(this.buttonPlay);
-            this.tabPage1.Controls.Add(this.labelTime);
-            this.tabPage1.Controls.Add(comboBoxClient);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(307, 229);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Czas";
+            this.tabPageTime.BackColor = System.Drawing.Color.White;
+            this.tabPageTime.Controls.Add(this.buttonSave);
+            this.tabPageTime.Controls.Add(this.button1);
+            this.tabPageTime.Controls.Add(this.radioButtonOther);
+            this.tabPageTime.Controls.Add(this.radioButtonDocument);
+            this.tabPageTime.Controls.Add(this.radioButtonRecommendation);
+            this.tabPageTime.Controls.Add(this.radioButtonAnalysis);
+            this.tabPageTime.Controls.Add(this.radioButtonEmail);
+            this.tabPageTime.Controls.Add(this.radioButtonCourt);
+            this.tabPageTime.Controls.Add(this.radioButtonCall);
+            this.tabPageTime.Controls.Add(this.textBoxComment);
+            this.tabPageTime.Controls.Add(this.buttonAddClient);
+            this.tabPageTime.Controls.Add(this.buttonPause);
+            this.tabPageTime.Controls.Add(this.buttonPlay);
+            this.tabPageTime.Controls.Add(this.labelTime);
+            this.tabPageTime.Controls.Add(this.comboBoxClient);
+            this.tabPageTime.Location = new System.Drawing.Point(4, 24);
+            this.tabPageTime.Name = "tabPageTime";
+            this.tabPageTime.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTime.Size = new System.Drawing.Size(307, 229);
+            this.tabPageTime.TabIndex = 0;
+            this.tabPageTime.Text = "Czas";
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.BackgroundImage = global::WMK.Properties.Resources.icon_save;
+            this.buttonSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSave.Location = new System.Drawing.Point(251, 116);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(50, 50);
+            this.buttonSave.TabIndex = 26;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Visible = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(226, 200);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // radioButtonOther
             // 
@@ -98,6 +122,7 @@
             this.radioButtonOther.TabIndex = 24;
             this.radioButtonOther.TabStop = true;
             this.radioButtonOther.UseVisualStyleBackColor = true;
+            this.radioButtonOther.Visible = false;
             this.radioButtonOther.CheckedChanged += new System.EventHandler(this.radioButtonOther_CheckedChanged);
             // 
             // radioButtonDocument
@@ -111,6 +136,7 @@
             this.radioButtonDocument.TabIndex = 23;
             this.radioButtonDocument.TabStop = true;
             this.radioButtonDocument.UseVisualStyleBackColor = true;
+            this.radioButtonDocument.Visible = false;
             this.radioButtonDocument.CheckedChanged += new System.EventHandler(this.radioButtonDocument_CheckedChanged);
             // 
             // radioButtonRecommendation
@@ -124,6 +150,7 @@
             this.radioButtonRecommendation.TabIndex = 22;
             this.radioButtonRecommendation.TabStop = true;
             this.radioButtonRecommendation.UseVisualStyleBackColor = true;
+            this.radioButtonRecommendation.Visible = false;
             this.radioButtonRecommendation.CheckedChanged += new System.EventHandler(this.radioButtonRecommendation_CheckedChanged);
             // 
             // radioButtonAnalysis
@@ -137,6 +164,7 @@
             this.radioButtonAnalysis.TabIndex = 21;
             this.radioButtonAnalysis.TabStop = true;
             this.radioButtonAnalysis.UseVisualStyleBackColor = true;
+            this.radioButtonAnalysis.Visible = false;
             this.radioButtonAnalysis.CheckedChanged += new System.EventHandler(this.radioButtonAnalysis_CheckedChanged);
             // 
             // radioButtonEmail
@@ -150,6 +178,7 @@
             this.radioButtonEmail.TabIndex = 20;
             this.radioButtonEmail.TabStop = true;
             this.radioButtonEmail.UseVisualStyleBackColor = true;
+            this.radioButtonEmail.Visible = false;
             this.radioButtonEmail.CheckedChanged += new System.EventHandler(this.radioButtonEmail_CheckedChanged);
             // 
             // radioButtonCourt
@@ -163,6 +192,7 @@
             this.radioButtonCourt.TabIndex = 19;
             this.radioButtonCourt.TabStop = true;
             this.radioButtonCourt.UseVisualStyleBackColor = true;
+            this.radioButtonCourt.Visible = false;
             this.radioButtonCourt.CheckedChanged += new System.EventHandler(this.radioButtonCourt_CheckedChanged);
             // 
             // radioButtonCall
@@ -176,16 +206,18 @@
             this.radioButtonCall.TabIndex = 18;
             this.radioButtonCall.TabStop = true;
             this.radioButtonCall.UseVisualStyleBackColor = true;
+            this.radioButtonCall.Visible = false;
             this.radioButtonCall.CheckedChanged += new System.EventHandler(this.radioButtonCall_CheckedChanged);
             // 
             // textBoxComment
             // 
-            textBoxComment.Enabled = false;
-            textBoxComment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            textBoxComment.Location = new System.Drawing.Point(6, 125);
-            textBoxComment.Name = "textBoxComment";
-            textBoxComment.Size = new System.Drawing.Size(162, 33);
-            textBoxComment.TabIndex = 10;
+            this.textBoxComment.Enabled = false;
+            this.textBoxComment.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxComment.Location = new System.Drawing.Point(6, 125);
+            this.textBoxComment.Name = "textBoxComment";
+            this.textBoxComment.Size = new System.Drawing.Size(162, 33);
+            this.textBoxComment.TabIndex = 10;
+            this.textBoxComment.Visible = false;
             // 
             // buttonAddClient
             // 
@@ -203,29 +235,31 @@
             this.buttonPause.BackgroundImage = global::WMK.Properties.Resources.icon_pause;
             this.buttonPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonPause.Enabled = false;
-            this.buttonPause.Location = new System.Drawing.Point(251, 41);
+            this.buttonPause.Location = new System.Drawing.Point(251, 60);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(50, 50);
             this.buttonPause.TabIndex = 6;
             this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Visible = false;
             this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // buttonPlay
             // 
             this.buttonPlay.BackgroundImage = global::WMK.Properties.Resources.icon_play;
             this.buttonPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonPlay.Location = new System.Drawing.Point(195, 41);
+            this.buttonPlay.Location = new System.Drawing.Point(251, 6);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(50, 50);
             this.buttonPlay.TabIndex = 5;
             this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Visible = false;
             this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelTime.Location = new System.Drawing.Point(199, 10);
+            this.labelTime.Location = new System.Drawing.Point(109, 170);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(102, 25);
             this.labelTime.TabIndex = 4;
@@ -233,25 +267,25 @@
             // 
             // comboBoxClient
             // 
-            comboBoxClient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            comboBoxClient.FormattingEnabled = true;
-            comboBoxClient.Location = new System.Drawing.Point(6, 6);
-            comboBoxClient.MaxDropDownItems = 20;
-            comboBoxClient.Name = "comboBoxClient";
-            comboBoxClient.Size = new System.Drawing.Size(143, 29);
-            comboBoxClient.Sorted = true;
-            comboBoxClient.TabIndex = 2;
-            comboBoxClient.Text = "Wybierz";
+            this.comboBoxClient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(6, 6);
+            this.comboBoxClient.MaxDropDownItems = 20;
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(143, 29);
+            this.comboBoxClient.Sorted = true;
+            this.comboBoxClient.TabIndex = 2;
+            this.comboBoxClient.Text = "Wybierz";
             // 
-            // tabPage2
+            // tabPageClient
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(307, 229);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Klient";
+            this.tabPageClient.BackColor = System.Drawing.Color.White;
+            this.tabPageClient.Location = new System.Drawing.Point(4, 24);
+            this.tabPageClient.Name = "tabPageClient";
+            this.tabPageClient.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageClient.Size = new System.Drawing.Size(307, 229);
+            this.tabPageClient.TabIndex = 1;
+            this.tabPageClient.Text = "Klient";
             // 
             // pictureBox1
             // 
@@ -267,16 +301,6 @@
             this.timerTime.Interval = 1000;
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(199, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -285,11 +309,12 @@
             this.ClientSize = new System.Drawing.Size(344, 298);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainWindow";
             this.Text = "WMK";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPageTime.ResumeLayout(false);
+            this.tabPageTime.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -298,8 +323,8 @@
         #endregion
 
         private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage tabPageTime;
+        private TabPage tabPageClient;
         private PictureBox pictureBox1;
         private Label labelTime;
         private Button buttonPlay;
@@ -313,8 +338,9 @@
         private RadioButton radioButtonRecommendation;
         private RadioButton radioButtonAnalysis;
         private RadioButton radioButtonEmail;
-        public static ComboBox comboBoxClient;
         private Button button1;
-        public static TextBox textBoxComment;
+        public ComboBox comboBoxClient;
+        public TextBox textBoxComment;
+        private Button buttonSave;
     }
 }
